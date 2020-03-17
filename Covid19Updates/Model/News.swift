@@ -20,14 +20,16 @@ struct News{
 
     init(dictionary:JSONDictionary) {
         
-            let id = dictionary["source"]?["id"] as? String
+            let id = dictionary["url"] as? String
             let name = dictionary["source"]?["name"] as? String
             let title = dictionary["title"] as? String
-            let description = dictionary["description"] as? String
+            let slicedDesciption1 = (dictionary["description"] as? String)?.slice(from: "<div>", to: "></div>")
+            let slicedDesciption2 = slicedDesciption1?.slice(from: "<div>", to: "</div")
+            let description = slicedDesciption2
             let content = dictionary["content"] as? String
-            let time = dictionary["publishedAt"] as? String
+            let time = dictionary["date"] as? String
             let newsUrl = dictionary["url"] as? String
-            let imageUrl = dictionary["urlToImage"] as? String
+            let imageUrl = dictionary["enclosure"]?["url"]as? String
         
         
         self.source = Source(id: id ?? "", name: name ?? "")
@@ -53,13 +55,10 @@ struct Articles {
 extension Articles : Parceable {
     static func parseObject(dictionary: [String : AnyObject]) -> Result<Articles, ErrorResult> {
         
-        let status = dictionary["status"] as! String
-        if status == "error" {
-            return Result.failure(ErrorResult.network(string: "maximum limit reached for free account"))
-        }
-
-        let count = dictionary["totalResults"] as! Int
-        if let data = dictionary["articles"] as? [[String:AnyObject]]{
+        let values = dictionary["data"] as! NSDictionary
+        let feed = values["createFeed"] as! NSDictionary
+        let count = (feed["items"] as! NSArray).count
+        if let data = feed["items"] as? [[String:AnyObject]]{
             
             guard data.count > 0 else {
                 return Result.failure(ErrorResult.parser(string: "No vehicle Details"))
@@ -82,4 +81,16 @@ extension Articles : Parceable {
         
     }
     
+}
+
+extension String {
+
+    func slice(from: String, to: String) -> String? {
+
+        return (range(of: from)?.upperBound).flatMap { substringFrom in
+            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+                String(self[substringFrom..<substringTo])
+            }
+        }
+    }
 }

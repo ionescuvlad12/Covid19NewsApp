@@ -41,9 +41,12 @@ class NewsItemViewModel : NSObject {
         //TODO: handle nil and ""
         
         if self.newsItem.time.isEmpty{
-            return "now"
+            return "Error time"
         }
+        
                 var newsTime = self.newsItem.time.replacingOccurrences(of: "T", with: " ")
+                newsTime.insert("*", at: newsTime.startIndex)
+                newsTime = newsTime.slice(from: "*", to: ".")!
                 newsTime = newsTime.replacingOccurrences(of: "Z", with: "")
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "yyyy-MM-dd H:mm:ss"

@@ -24,7 +24,7 @@ protocol URLSessionTaskProtocol {
 
 
 final class RequestService {
-        
+    
     private let session: URLSessionProtocol
     
     init(session: URLSessionProtocol) {
@@ -32,14 +32,14 @@ final class RequestService {
     }
     
     
-    func requestDataFromServer(urlstring : String, completion : @escaping (Result<Data, ErrorResult>)->Void)->URLSessionTask?{
+    func requestDataFromServer(urlstring : String, query: String, completion : @escaping (Result<Data, ErrorResult>)->Void)->URLSessionTask?{
         
         guard let url = URL(string: urlstring) else {
             completion(.failure(.network(string: "invalid url")))
             return nil
         }
         
-        var request = RequestFactory.request(method: .GET, url: url)
+        var request = RequestFactory.request(method: .POST, url: url, query: query)
         
         if let reachability = Reachability(), !reachability.isReachable{
             request.cachePolicy = .returnCacheDataDontLoad
