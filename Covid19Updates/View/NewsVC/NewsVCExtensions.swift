@@ -25,6 +25,7 @@ extension NewsCollectionViewController {
         storyVC.storyURL = selectedStoryURL
         
         self.navigationController?.pushViewController(storyVC, animated: true)
+        NotificationCenter.default.post(name: Notification.Name("StoryPresented"), object: nil)
     }
     
 }

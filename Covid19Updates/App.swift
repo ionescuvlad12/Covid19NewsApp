@@ -1,0 +1,41 @@
+//
+//  App.swift
+//  Covid19Updates
+//
+//  Created by Vlad Ionescu on 17/03/2020.
+//  Copyright © 2020 Vlad Ionescu. All rights reserved.
+//
+
+import UIKit
+import SafariServices
+
+class App {
+	static func checkForAppUpdate(completion: @escaping (_ updateAvailable: Bool) -> Void) {
+		let checkForUpdateURL = URL(string: "https://api.github.com/repos/MhdHejazi/CoronaTracker/releases/latest")!
+		_ = URLSession.shared.dataTask(with: checkForUpdateURL) { (data, response, error) in
+			guard let response = response as? HTTPURLResponse,
+				response.statusCode == 200,
+				let data = data,
+				let result = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+				let tagName = result["tag_name"] as? String else {
+					print("Failed update call")
+					completion(false)
+					return
+			}
+
+			guard let currentVersion = Bundle.main.infoDictionary?["CFBundleVersion"], tagName != "v\(currentVersion)" else {
+				completion(false)
+				return
+			}
+
+			completion(true)
+		}.resume()
+	}
+
+	public static func openUpdatePage(viewController: UIViewController) {
+		let url = URL(string: "https://github.com/MhdHejazi/CoronaTracker/releases/latest")!
+		let safariController = SFSafariViewController(url: url)
+		safariController.modalPresentationStyle = .pageSheet
+		viewController.present(safariController, animated: true)
+	}
+}
