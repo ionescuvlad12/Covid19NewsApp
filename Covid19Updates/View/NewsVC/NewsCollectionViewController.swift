@@ -42,8 +42,9 @@ class NewsCollectionViewController: UICollectionViewController {
     }
     @objc func loadingNews(notification: Notification) {
         removeSpinner { () in
-            self.showSpinner(onView: self.collectionView)
+            self.collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
             self.collectionView.isScrollEnabled = false
+            self.showSpinner(onView: self.collectionView)
             Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (timer) in
                 self.removeSpinner { () in
                     self.collectionView.isScrollEnabled = true

@@ -492,7 +492,7 @@
                         </cells>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Top region news" id="nX4-T1-oMO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="aeH-r8-R4I">
+                        <barButtonItem key="rightBarButtonItem" id="aeH-r8-R4I">
                             <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="d6C-Lv-wJS">
                                 <rect key="frame" x="199" y="5.6666666666666679" width="195" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
