@@ -53,6 +53,11 @@ final class RequestService {
             
             if let data = data{
                 completion(Result.success(data))
+                if data.count < 500 {
+                    DispatchQueue.main.async {
+                    NotificationCenter.default.post(name: Notification.Name("errorLoading"), object: nil)
+                    }
+                }
             }
         }
         task.resumeTask()

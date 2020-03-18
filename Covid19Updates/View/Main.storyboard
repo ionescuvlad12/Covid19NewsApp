@@ -160,9 +160,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2O-X2-6Us">
-                                                    <rect key="frame" x="0.0" y="-649" width="414" height="783"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="783"/>
                                                     <connections>
-                                                        <segue destination="fqS-yB-ZN7" kind="embed" id="3SC-iP-S4V"/>
+                                                        <segue destination="fqS-yB-ZN7" kind="embed" identifier="newsEmbededSegue" id="3SC-iP-S4V"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -324,7 +324,6 @@
         <!--Navigation Controller-->
         <scene sceneID="ruy-yC-unr">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Uj-xO-U9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="fqS-yB-ZN7" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="UwL-g9-QHF"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2a-u1-nMx">
@@ -336,13 +335,13 @@
                         <segue destination="SFG-lI-36Y" kind="relationship" relationship="rootViewController" id="yu0-Tw-I7n"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Uj-xO-U9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="819" y="64"/>
         </scene>
         <!--Top news-->
         <scene sceneID="w45-eV-zR1">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6Am-Ej-xUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <collectionViewController id="SFG-lI-36Y" customClass="NewsCollectionViewController" customModule="Covid19Updates" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="1yb-qf-9FW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="783"/>
@@ -505,13 +504,13 @@
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Am-Ej-xUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1483" y="64"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="n8Z-JA-2Bm">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V4i-8V-nlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="G23-sW-DSE" customClass="StoryViewController" customModule="Covid19Updates" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9P-1d-zNo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -541,10 +540,10 @@
                         <viewLayoutGuide key="safeArea" id="xwB-or-TIH"/>
                     </view>
                     <connections>
-                        <outlet property="indicator" destination="cf0-ml-T5N" id="DxT-px-CyS"/>
                         <outlet property="newsView" destination="CsD-HV-PUm" id="TU5-S9-rdU"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V4i-8V-nlM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2397" y="64"/>
         </scene>

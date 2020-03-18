@@ -9,7 +9,6 @@
 
 import Foundation
 
-
 typealias NewsCellConfig = NewsCollectionCellConfigurator<NewsCell, NewsItemViewModel>
 typealias MainStoryCellConfig = NewsCollectionCellConfigurator<MainStoryCell, NewsItemViewModel>
 
@@ -28,7 +27,9 @@ class NewsListViewModel {
     
     
     func fetchData(fromPage number : Int) {
-        
+        TotalArticleList.shared.loadedArticleList?.removeAll()
+        TotalArticleList.shared.totalItems = 0
+        NotificationCenter.default.post(name: NSNotification.Name("loadingNews"), object: nil)
         guard let service = service else {
             errorResult?(ErrorResult.custom(string: "service missing"))
             return
@@ -39,7 +40,7 @@ class NewsListViewModel {
                 case .success(let receivedData):
                     TotalArticleList.shared.update(with: receivedData.articleList!, totalResults: receivedData.totalArticles!)
                     self.dataSource?.data.value = TotalArticleList.shared.loadedArticleList!.compactMap(NewsItemViewModel.init)
-                    
+                     NotificationCenter.default.post(name: NSNotification.Name("newsLoaded"), object: nil)
                 case .failure(let error):
                     self.errorResult?(error)
                     

@@ -89,6 +89,15 @@ class MapController: UIViewController {
 	func updateRegionScreen(report: Report?) {
 		regionContainerController.regionController.report = report
 		regionContainerController.regionController.update()
+        var region = report?.region.provinceName
+        if region?.isEmpty ?? true {
+            region = report?.region.countryName
+        }
+        let location = CLLocation(latitude: report?.region.location.latitude ?? 0, longitude: report?.region.location.longitude ?? 0)
+        location.fetchCityAndCountry { city, country, error in
+            self.regionContainerController.regionController.updateChild(region: region, language: NSLocale(localeIdentifier: country ?? "").localeIdentifier)
+        }
+        
 	}
 
 	func showRegionScreen() {
@@ -207,7 +216,7 @@ extension MapController: MKMapViewDelegate {
 
 	func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
 		updateRegionScreen(report: (view as? ReportAnnotationView)?.report)
-	}
+    }
 
 	func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
 		updateRegionScreen(report: nil)

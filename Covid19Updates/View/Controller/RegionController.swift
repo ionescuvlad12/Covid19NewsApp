@@ -30,6 +30,8 @@ class RegionController: UITableViewController {
     private var showPercents = false
     private var switchPercentsTask: DispatchWorkItem?
     private var showFirstCell = true
+    private var service:NewsFetchService?
+    private var newsController:NewsCollectionViewController?
     @IBOutlet var stackViewStats: UIStackView!
     @IBOutlet var labelConfirmed: UILabel!
     @IBOutlet var labelRecovered: UILabel!
@@ -116,12 +118,28 @@ class RegionController: UITableViewController {
         }
     }
     
+    func updateChild(region: String?, language: String?) {
+        service?.region = region ?? ""
+        service?.language = language ?? "en"
+        newsController?.viewModel.fetchData(fromPage: 0)
+        
+    }
+    
     func updateParent() {
         (parent as? RegionContainerController)?.update(report: report)
     }
     
     @objc func storyPresented(notification: Notification) {
         self.tableView.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newsEmbededSegue", let navigation = segue.destination as? UINavigationController {
+            if let newsController = navigation.viewControllers[0] as? NewsCollectionViewController, let service = newsController.viewModel.service as? NewsFetchService {
+                self.newsController = newsController
+                self.service = service
+            }
+        }
     }
 }
 

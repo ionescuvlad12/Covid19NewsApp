@@ -55,10 +55,7 @@ struct Articles {
 extension Articles : Parceable {
     static func parseObject(dictionary: [String : AnyObject]) -> Result<Articles, ErrorResult> {
         
-        let values = dictionary["data"] as! NSDictionary
-        let feed = values["createFeed"] as! NSDictionary
-        let count = (feed["items"] as! NSArray).count
-        if let data = feed["items"] as? [[String:AnyObject]]{
+        if let values = dictionary["data"] as? NSDictionary, let feed = values["createFeed"] as? NSDictionary, let count = (feed["items"] as? NSArray)?.count, let data = feed["items"] as? [[String:AnyObject]] {
             
             guard data.count > 0 else {
                 return Result.failure(ErrorResult.parser(string: "No vehicle Details"))

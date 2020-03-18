@@ -21,15 +21,16 @@ final class NewsFetchService : ResponseHandler, DataFetchServiceProtocol{
     
     var task : URLSessionTask?
     
+    var region = ""
+    var language = Locale.current.languageCode!
+    
     func fetchDatafromServer(fromPage number : Int, _ completion: @escaping ((Result<Articles, ErrorResult>) -> Void)) {
-        
-        let key = "bd05112cec824209913198a603d414c6"
-        let pageSize = 21
-        let region = "brasov"
-        let language = "ro"
+        region = region.replacingOccurrences(of: " ", with: "+")
         let endpoint = "https://rss.app/graphql"
-        let query = "https://news.google.com/search?q=coronavirus+\(region)&hl=\(language)"
-//        let endpoint = "https://newsapi.org/v2/everything?q=((%22coronavirus%22%20OR%20%22covid%22)%20AND%20%22\(region)%22)&sources=google-news&language=\(language)&sortBy=publishedAt&apiKey=\(key)&page=\(number)&pageSize=\(pageSize)"
+        var query = "https://news.google.com/search?q=coronavirus+\(region)&gl=\(language)"
+        if region.isEmpty {
+            query = "https://news.google.com/search?q=coronavirus&hl=\(language)"
+        }
         
         self.cancelPreviousTask()
         

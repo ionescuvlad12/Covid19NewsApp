@@ -14,7 +14,6 @@ class StoryViewController: UIViewController{
     var storyURL : URL?
 
     @IBOutlet weak var newsView: WKWebView!
-    @IBOutlet weak var indicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

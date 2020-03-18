@@ -14,7 +14,7 @@ public struct Region: Codable {
 	public let countryName: String
 	public let provinceName: String
 	public let location: Coordinate
-
+    
 	public var isProvince: Bool { !provinceName.isEmpty }
 	public var name: String { isProvince ? "\(provinceName), \(countryName)" : countryName }
 }
