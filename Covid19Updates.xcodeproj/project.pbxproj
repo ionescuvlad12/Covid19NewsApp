@@ -114,7 +114,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F5833D8D242073FC00726311 /* Covid19Updates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Covid19Updates.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5833D8D242073FC00726311 /* CoronaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5833D90242073FC00726311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F5833D92242073FC00726311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5833D99242073FE00726311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -224,7 +224,7 @@
 		F5833D8E242073FC00726311 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5833D8D242073FC00726311 /* Covid19Updates.app */,
+				F5833D8D242073FC00726311 /* CoronaNews.app */,
 				F5833DA3242073FE00726311 /* Covid19UpdatesTests.xctest */,
 				F5FCE2CE2421746E00077B99 /* Widget.appex */,
 			);
@@ -461,7 +461,7 @@
 				F5FCE291242171C400077B99 /* CSV */,
 			);
 			productName = Covid19Updates;
-			productReference = F5833D8D242073FC00726311 /* Covid19Updates.app */;
+			productReference = F5833D8D242073FC00726311 /* CoronaNews.app */;
 			productType = "com.apple.product-type.application";
 		};
 		F5833DA2242073FE00726311 /* Covid19UpdatesTests */ = {
@@ -824,7 +824,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twelveit.ro.Covid19Updates;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CoronaNews;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -843,7 +843,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twelveit.ro.Covid19Updates;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CoronaNews;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
