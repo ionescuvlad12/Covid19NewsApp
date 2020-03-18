@@ -41,21 +41,31 @@ class NewsCollectionViewController: UICollectionViewController {
         }
     }
     @objc func loadingNews(notification: Notification) {
-        removeSpinner()
-        showSpinner(onView: collectionView)
+        removeSpinner { () in
+            self.showSpinner(onView: self.collectionView)
+            Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (timer) in
+                self.removeSpinner { () in}
+        }
+        
+        }
     }
     @objc func newsLoaded(notification: Notification) {
-           removeSpinner()
+        removeSpinner { () in
+            self.errorCount = 0
+        }
        }
     @objc func newsError(notification: Notification) {
         if errorCount < 3 {
             self.showMessage(title: "Can't get the news",
                              message: "Please try a different region")
+            errorCount += 1
         } else {
         self.showMessage(title: "Can't update the data",
                   message: "Please make sure you're connected to the internet.")
-        removeSpinner()
+            
         }
+        removeSpinner { () in}
+        
     }
 }
 
@@ -77,9 +87,10 @@ extension UIViewController {
         vSpinner = spinnerView
     }
     
-    func removeSpinner() {
+    func removeSpinner(completion: @escaping () -> ()) {
         DispatchQueue.main.async {
             vSpinner?.removeFromSuperview()
+            completion()
         }
     }
 }
