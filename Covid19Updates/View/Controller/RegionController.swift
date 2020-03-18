@@ -30,7 +30,7 @@ class RegionController: UITableViewController {
     private var showPercents = false
     private var switchPercentsTask: DispatchWorkItem?
     private var showFirstCell = true
-    private var service:NewsFetchService?
+    public var service:NewsFetchService?
     private var newsController:NewsCollectionViewController?
     @IBOutlet var stackViewStats: UIStackView!
     @IBOutlet var labelConfirmed: UILabel!
@@ -74,13 +74,7 @@ class RegionController: UITableViewController {
             self.labelConfirmed.text = self.report?.stat.confirmedCountString ?? "-"
             self.labelRecovered.text = self.report?.stat.recoveredCountString ?? "-"
             self.labelDeaths.text = self.report?.stat.deathCountString ?? "-"
-            //			self.labelUpdated.text = "Last updated: \(self.report?.lastUpdate.relativeDateString ?? "-")"
         }, completion: nil)
-        
-        //		chartViewCurrent.update(report: report)
-        //		chartViewHistory.update(series: timeSeries)
-        //		chartViewTopCountries.update()
-        
         updateParent()
         
         updateStats(reset: true)

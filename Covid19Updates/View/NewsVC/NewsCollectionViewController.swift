@@ -43,15 +43,27 @@ class NewsCollectionViewController: UICollectionViewController {
     @objc func loadingNews(notification: Notification) {
         removeSpinner { () in
             self.showSpinner(onView: self.collectionView)
-            Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { (timer) in
-                self.removeSpinner { () in}
+            self.collectionView.isScrollEnabled = false
+            Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (timer) in
+                self.removeSpinner { () in
+                    self.collectionView.isScrollEnabled = true
+                }
         }
         
+        }
+    }
+    @IBAction func sourceToggleDidChange(_ sender: Any) {
+        if let regionControl = self.parent?.parent as? RegionController, let segmentControl = sender as? UISegmentedControl {
+            let isInternational = segmentControl.selectedSegmentIndex == 1
+            regionControl.service?.isInternational = isInternational
+            viewModel.fetchData(fromPage: 0)
+            
         }
     }
     @objc func newsLoaded(notification: Notification) {
         removeSpinner { () in
             self.errorCount = 0
+            self.collectionView.isScrollEnabled = true
         }
        }
     @objc func newsError(notification: Notification) {
@@ -64,7 +76,9 @@ class NewsCollectionViewController: UICollectionViewController {
                   message: "Please make sure you're connected to the internet.")
             
         }
-        removeSpinner { () in}
+        removeSpinner { () in
+            self.collectionView.isScrollEnabled = true
+        }
         
     }
 }
@@ -78,7 +92,6 @@ extension UIViewController {
         let ai = UIActivityIndicatorView.init(style: .large)
         ai.startAnimating()
         ai.center = spinnerView.center
-        
         DispatchQueue.main.async {
             spinnerView.addSubview(ai)
             onView.addSubview(spinnerView)

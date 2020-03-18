@@ -24,7 +24,7 @@ class TotalArticleList{
     }
     
     func update(with newList : [News], totalResults : Int){
-        loadedArticleList?.append(contentsOf: newList)
+        loadedArticleList?.append(contentsOf: newList.sorted(by: { $0.time > $1.time }))
         totalItems = totalResults
     }
 }

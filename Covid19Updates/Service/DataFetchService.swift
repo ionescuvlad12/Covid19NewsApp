@@ -14,7 +14,7 @@ protocol DataFetchServiceProtocol : class{
 }
 
 final class NewsFetchService : ResponseHandler, DataFetchServiceProtocol{
-
+    
     static let shared = NewsFetchService()
     
     let dateToday = Date()
@@ -22,20 +22,39 @@ final class NewsFetchService : ResponseHandler, DataFetchServiceProtocol{
     var task : URLSessionTask?
     
     var region = ""
-    var language = Locale.current.languageCode!
+    var language = Locale.current.languageCode! {
+        didSet {
+            if language != "en" && !language.isEmpty {
+                lastLanguage = language
+            }
+        }
+    }
+    var lastLanguage = ""
+    var isInternational = false {
+        didSet {
+            if isInternational {
+                language = "en"
+            } else {
+                language = lastLanguage
+            }
+        }
+    }
     
     func fetchDatafromServer(fromPage number : Int, _ completion: @escaping ((Result<Articles, ErrorResult>) -> Void)) {
+        if self.isInternational {
+            language = "en"
+        } else {
+            lastLanguage = language
+        }
         region = region.replacingOccurrences(of: " ", with: "+")
         let endpoint = "https://rss.app/graphql"
         var query = "https://news.google.com/search?q=coronavirus+\(region)&gl=\(language)"
         if region.isEmpty {
             query = "https://news.google.com/search?q=coronavirus&hl=\(language)"
         }
-        
         self.cancelPreviousTask()
         
         task = RequestService(session: URLSession(configuration: .default)).requestDataFromServer(urlstring: endpoint, query: query, completion: self.networkResponse(completion: completion))
-        
     }
     
     func cancelPreviousTask(){

@@ -20,7 +20,7 @@ class MapController: UIViewController {
 	private var allAnnotations: [ReportAnnotation] = []
 	private var countryAnnotations: [ReportAnnotation] = []
 	private var currentAnnotations: [ReportAnnotation] = []
-
+    public var lastReport : Report?
 	private var panelController: FloatingPanelController!
 	private var regionContainerController: RegionContainerController!
 
