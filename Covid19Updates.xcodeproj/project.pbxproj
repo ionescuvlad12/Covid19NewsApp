@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F5833D91242073FC00726311 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5833D90242073FC00726311 /* AppDelegate.swift */; };
-		F5833D93242073FC00726311 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5833D92242073FC00726311 /* SceneDelegate.swift */; };
 		F5833D9A242073FE00726311 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5833D99242073FE00726311 /* Assets.xcassets */; };
 		F5833D9D242073FE00726311 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5833D9B242073FE00726311 /* LaunchScreen.storyboard */; };
 		F5833DA8242073FE00726311 /* Covid19UpdatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5833DA7242073FE00726311 /* Covid19UpdatesTests.swift */; };
@@ -116,7 +115,6 @@
 /* Begin PBXFileReference section */
 		F5833D8D242073FC00726311 /* CoronaNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoronaNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5833D90242073FC00726311 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5833D92242073FC00726311 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F5833D99242073FE00726311 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5833D9C242073FE00726311 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5833D9E242073FE00726311 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -242,7 +240,6 @@
 				F5ABD48C242075F400EBA463 /* ViewModel */,
 				F5FCE280242170B900077B99 /* App.swift */,
 				F5833D90242073FC00726311 /* AppDelegate.swift */,
-				F5833D92242073FC00726311 /* SceneDelegate.swift */,
 				F5833D99242073FE00726311 /* Assets.xcassets */,
 				F5833D9B242073FE00726311 /* LaunchScreen.storyboard */,
 				F5833D9E242073FE00726311 /* Info.plist */,
@@ -620,7 +617,6 @@
 				F5FCE25724216FDC00077B99 /* DataManager.swift in Sources */,
 				F5ABD4B1242075F400EBA463 /* NewsCollectionViewController.swift in Sources */,
 				F5FCE2752421702100077B99 /* MapController.swift in Sources */,
-				F5833D93242073FC00726311 /* SceneDelegate.swift in Sources */,
 				F5ABD4AB242075F400EBA463 /* NewsDataSource.swift in Sources */,
 				F5FCE26224216FEF00077B99 /* Coordinate.swift in Sources */,
 				F5FCE26E2421700A00077B99 /* JHUWebDataService.swift in Sources */,
@@ -747,7 +743,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -801,7 +797,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -817,8 +813,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 72A2L2NU96;
 				INFOPLIST_FILE = Covid19Updates/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -836,8 +834,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 72A2L2NU96;
 				INFOPLIST_FILE = Covid19Updates/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -897,8 +897,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 72A2L2NU96;
 				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -916,8 +918,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 72A2L2NU96;
 				INFOPLIST_FILE = Widget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

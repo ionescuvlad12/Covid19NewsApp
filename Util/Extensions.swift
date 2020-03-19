@@ -194,7 +194,11 @@ extension UIActivityIndicatorView {
         indicator.layer.cornerRadius = 10
         indicator.center = center
         indicator.hidesWhenStopped = true
-        indicator.style = .large
+        if #available(iOS 13.0, *) {
+            indicator.style = .large
+        } else {
+            // Fallback on earlier versions
+        }
         indicator.backgroundColor = UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 0.5)
         return indicator
     }
