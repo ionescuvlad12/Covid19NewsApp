@@ -2,8 +2,6 @@
 
 <img src="https://github.com/ionescuvlad12/Covid19NewsApp/blob/master/Covid19Updates/Assets.xcassets/AppIcon.appiconset/corona-news-logo-1024.png" width="127">
 
-Coronavirus news with map.
-
 ![iOS](https://img.shields.io/badge/iOS-12%20-blue)
 ![Swift](https://img.shields.io/badge/Swift-5-orange?logo=Swift&logoColor=white)
 ![img](https://github.com/ionescuvlad12/Covid19NewsApp/blob/master/Screens.png)
