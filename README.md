@@ -24,7 +24,7 @@
 ## How to Use
 1. Clone/Download the repo.
 2. Open `Covid19NewsApp.xcodeproj` in Xcode.
-3. Choose the right target (iOS or macOS).
+3. Choose the right target.
 4. Build & run!
 
 ## Contribute
