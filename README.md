@@ -37,8 +37,10 @@ The app is available for personal/non-commercial use. It's not allowed to publis
 Ionescu Vlad
 
 ## Credits
-For map integration:
-  https://github.com/MhdHejazi/CoronaTracker
+Logo: 
+<a href =https://github.com/ssebi> Vidrea Sebastian </a>
+<br>
+For map integration: https://github.com/MhdHejazi/CoronaTracker
 ### Data
 Data is provided by JHU CSSE (https://github.com/CSSEGISandData/COVID-19).
 
